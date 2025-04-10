@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Prefill sender details
     document.getElementById('from-name').value = 'Colors Common Services';
-    document.getElementById('from-address').value = 'Main Road, Madukkur';
+    document.getElementById('from-address').value = '331, Sameer Complex, Main Road , Madukkur';
     document.getElementById('from-phone').value = '+917530051393';
     document.getElementById('from-email').value = 'ccsmkr@gmail.com';
     document.getElementById('account-number').value = '510909010311328';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('bank-name').value = 'City Union Bank';
     document.getElementById('ifsc-code').value = 'CIUB0000291';
     document.getElementById('branch-details').value = 'Madukkur';
-    document.getElementById('upi-id').value = 'mo@ybl';
+    document.getElementById('upi-id').value = 'ccsmkr-1@okaxis';
 
     // Part 2: Autocomplete functionality for product codes
     // Initialize autocomplete for all code inputs
