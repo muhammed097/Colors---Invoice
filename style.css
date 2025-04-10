@@ -1,0 +1,690 @@
+/* Part 1: Variables and Base Styles */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #f72585;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --border-color: #dee2e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: var(--dark-color);
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.form-container {
+    padding: 20px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.address-input {
+    min-height: 80px;
+}
+
+.flex-container {
+    display: flex;
+    gap: 20px;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+/* Part 2: Buttons and Tables */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.items-table th, .items-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: center;
+}
+
+.items-table th {
+    background-color: var(--light-color);
+}
+
+.items-table input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: center;
+}
+
+.items-table input:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-add {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #2b28a7;
+}
+
+.btn-remove {
+    background-color: #e63946;
+    color: white;
+}
+
+.btn-remove:hover {
+    background-color: #d62b3a;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #324fc7;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.invoice-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.invoice-items th, .invoice-items td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.invoice-items th {
+    background-color: var(--light-color);
+    font-weight: 600;
+}
+
+/* Define column widths for invoice items table */
+.invoice-items th:nth-child(1), .invoice-items td:nth-child(1) { width: 5%; text-align: center; } /* SI No */
+.invoice-items th:nth-child(2), .invoice-items td:nth-child(2) { width: 10%; text-align: center; } /* Code */
+.invoice-items th:nth-child(3), .invoice-items td:nth-child(3) { width: 35%; text-align: left; } /* Description */
+.invoice-items th:nth-child(4), .invoice-items td:nth-child(4) { width: 10%; text-align: right; } /* Quantity */
+.invoice-items th:nth-child(5), .invoice-items td:nth-child(5) { width: 15%; text-align: right; } /* Price */
+.invoice-items th:nth-child(6), .invoice-items td:nth-child(6) { width: 15%; text-align: right; } /* Amount */
+
+/* Part 3: Discount and Totals */
+/* Discount section styles */
+.discount-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.discount-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.discount-controls label {
+    margin-bottom: 0;
+    min-width: 70px;
+}
+
+.discount-controls select {
+    width: 150px;
+}
+
+.discount-value-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.discount-value-container input {
+    width: 120px;
+    padding-right: 25px;
+}
+
+.discount-symbol {
+    position: absolute;
+    right: 10px;
+    color: #6c757d;
+}
+
+#discount-amount-display {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.discount-label {
+    margin-right: 10px;
+}
+
+.total-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 2px solid var(--border-color);
+}
+
+.total-label {
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.total-amount {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+
+.amount-in-words {
+    text-align: right;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.invoice-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.invoice-total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.invoice-total-row {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.error-message {
+    color: #e63946;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.total-subtotal {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right:30px;
+}
+
+/* Part 4: Invoice Output and Logo */
+.invoice-output {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.invoice-title {
+    color: var(--primary-color);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.invoice-number {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.from-to-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.address-block {
+    max-width: 40%;
+}
+
+.address-heading {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.currency-selector {
+    margin-bottom: 15px;
+}
+
+.logo-uploader {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-preview-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo-upload-label {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.logo-upload-label:hover {
+    background-color: #2b28a7;
+}
+
+.logo-help-text {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 8px;
+}
+
+/* Code input and autocomplete styles */
+.code-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.item-code {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    width: 100%;
+    padding-right: 25px; /* Space for icon */
+}
+
+.code-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px; /* Wider than the input to show descriptions */
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    text-align: left;
+}
+
+.suggestion-item:hover, .suggestion-item.active {
+    background-color: #f0f7ff;
+}
+
+.suggestion-item strong {
+    color: var(--primary-color);
+}
+
+/* Footer Styles */
+.footer {
+    color:#000;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.heart {
+    color: #f72585;
+    font-size: 18px;
+    animation: heartbeat 1.5s infinite;
+    display: inline-block;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Part 5: Utilities, Popup and Responsive Styles */
+/* Message container for notifications */
+#message-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4361ee;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+    display: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Improved print styles for table formatting */
+@media print {
+    /* General print styles */
+    body, html {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .container {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .form-container, header, .invoice-actions, .footer, .discount-section {
+        display: none !important;
+    }
+    
+    .invoice-output {
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+    }
+    
+    /* Table-specific print styles */
+    .invoice-items {
+        width: 100% !important;
+        table-layout: fixed !important;
+        border-collapse: collapse !important;
+        white-space: normal !important;
+        overflow-x: visible !important;
+        display: table !important;
+    }
+    
+    .invoice-items:before {
+        display: none !important; /* Hide scroll indicator */
+    }
+    
+    .invoice-items th, .invoice-items td {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        overflow: hidden !important;
+        page-break-inside: avoid !important;
+        padding: 8px 4px !important;
+        vertical-align: top !important;
+        font-size: 11pt !important;
+    }
+    
+    /* Define explicit column widths for print */
+    .invoice-items th:nth-child(1), .invoice-items td:nth-child(1) { width: 6% !important; text-align: center !important; }
+    .invoice-items th:nth-child(2), .invoice-items td:nth-child(2) { width: 10% !important; text-align: center !important; }
+    .invoice-items th:nth-child(3), .invoice-items td:nth-child(3) { width: 35% !important; text-align: left !important; }
+    .invoice-items th:nth-child(4), .invoice-items td:nth-child(4) { width: 10% !important; text-align: right !important; }
+    .invoice-items th:nth-child(5), .invoice-items td:nth-child(5) { width: 15% !important; text-align: right !important; }
+    .invoice-items th:nth-child(6), .invoice-items td:nth-child(6) { width: 15% !important; text-align: right !important; }
+    
+    /* Ensure the container has enough width */
+    .container, .invoice-output {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 10px !important;
+    }
+    
+    /* Remove page margins */
+    @page {
+        margin: 0.5cm;
+    }
+    
+    /* Make sure the footer is hidden when printing */
+    .footer {
+        display: none !important;
+    }
+    
+    /* Make sure suggestions don't show when printing */
+    .code-suggestions {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .from-to-container {
+        flex-direction: column;
+    }
+
+    .address-block {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .items-table, .invoice-items {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Add horizontal scrolling hint */
+    .items-table:before, .invoice-items:before {
+        content: "← Scroll horizontally →";
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        color: #6c757d;
+        padding: 5px 0;
+    }
+
+    /* Ensure the form layout adjusts properly */
+    .form-group, .currency-selector, .logo-uploader {
+        width: 100%;
+    }
+
+    /* Make inputs more touch-friendly */
+    input, select, textarea, .btn {
+        padding: 12px;
+        font-size: 16px; /* Prevents zoom on input focus on iOS */
+    }
+
+    /* Adjust the total section for smaller screens */
+    .total-section {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .total-subtotal {
+        margin-bottom: 15px;
+    }
+    
+    /* Adjust discount controls for mobile */
+    .discount-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .discount-controls select,
+    .discount-value-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .discount-value-container input {
+        width: 100%;
+    }
+    
+    /* Mobile responsiveness for the autocomplete dropdown */
+    .code-suggestions {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .form-section {
+        padding: 15px 10px;
+    }
+
+    /* Shrink headers on mobile */
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Adjust actions section */
+    .invoice-actions {
+        flex-direction: column;
+    }
+
+    .invoice-actions button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    /* On very small screens, make suggestions wider and centered */
+    .code-suggestions {
+        width: 90vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
